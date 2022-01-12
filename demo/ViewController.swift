@@ -9,11 +9,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var countDataSource: CountDataSource!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setUpComponents()
+    }
+    
+    func setUpComponents() {
+        countDataSource = CountDataSource(tableView, dataSource: self)
     }
 
 
+}
+
+extension ViewController: DataSourceDelegate {
+
+    func dataSource(_ dataSource: Any, didSelectItem item: Any, atIndexPath: IndexPath) {
+    }
+    
 }
 
